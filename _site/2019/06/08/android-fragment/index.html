@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Mobile Lover">
+    <meta name="keywords"  content="Mobile">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="[Android] Fragment 란 - Junghoon's Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Fragment 란?
+
+">
+    
+    <meta property="article:published_time" content="2019-06-08T00:00:00Z">
+    
+    
+    <meta property="article:author" content="JungHoon-Park">
+    
+    
+    <meta property="article:tag" content="Android">
+    
+    <meta property="article:tag" content="Mobile">
+    
+    <meta property="article:tag" content="Study">
+    
+    
+    <meta property="og:image" content="http://localhost:4000">
+    <meta property="og:url" content="http://localhost:4000/2019/06/08/android-fragment/">
+    <meta property="og:site_name" content="Junghoon's Blog">
+    
+    <title>[Android] Fragment 란 - Junghoon's Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/2019/06/08/android-fragment/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Junghoon's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/archive/">Archive</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/home-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/home-bg.jpg');
+        background: ;
+    }
+
+    
+    header.intro-header .header-mask{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0,0,0, 0.3);
+    }
+    
+</style>
+
+<header class="intro-header style-text" >
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Android" title="Android">Android</a>
+                        
+                        <a class="tag" href="/archive/?tag=Mobile" title="Mobile">Mobile</a>
+                        
+                        <a class="tag" href="/archive/?tag=Study" title="Study">Study</a>
+                        
+                    </div>
+                    <h1>[Android] Fragment 란</h1>
+                    
+                    <h2 class="subheading"> About Fragment </h2>
+                    <span class="meta">Posted by JungHoon-Park on June 8, 2019</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+				<h1 id="fragment-란">Fragment 란?</h1>
+
+<p><code class="highlighter-rouge">Fragment</code>는 동작 또는 <code class="highlighter-rouge">Activity</code> 내에서 UI의 일부를 나타낸다. 여러 개의 프래그먼트를 하나의 액티비티에 조합하여 창이 여러 개인 UI를 구축할 수 있으며, 하나의 프래그먼트를 여러 액티비티에서 재사용할 수 있다. 프래그먼트는 자체 수명 주기를 가지고, 자체 입력 이벤트를 받으며, 액티비티 실행 중에 추가 및 제거가 가능한 액티비티의 모듈식 섹션이라고 생각하면 된다.<br /><br />
+프래그먼트는 항상 액티비티 내에 포함되어 있어야 하며 해당 프래그먼트의 수명 주기는 호스트 액티비티의 수명 주기에 직접적으로 영향을 받는다.<br /><br />
+예를 들어 액티비티가 일시정지되는 경우, 그 안의 모든 프래그먼트도 일시정지되며 액티비티가 소멸되면 모든 프래그먼트도 마찬가지로 소멸된다.<br /><br />
+프래그먼트를 액티비티 레이아웃의 일부로 추가하는 경우, 이는 액티비티의 뷰 계층 내부의 <code class="highlighter-rouge">ViewGroup</code>안에 있으며, 해당 프래그먼트가 자신의 뷰 레이아웃을 정의한다. 프래그먼트를 액티비티 레이아웃에 삽입하려면 해당 프래그먼트를 액티비티의 레이아웃 파일에서 <code class="highlighter-rouge">&lt;fragment&gt;</code>요소로 선언하거나, 애플리케이션 코드에서 이를 기존의 <code class="highlighter-rouge">ViewGroup</code>에 추가하면 된다.<code class="highlighter-rouge">그러나 프래그먼트가 액티비티 레이아웃의 일부분이어야만 하는 것은 아니다. 나름의 UI가 없는 프래그먼트도 액티비티를 위한 보이지 않는 작업자로 사용할 수 있다.</code><br /><br /></p>
+
+<p><strong>프래그먼트 사용 목적</strong></p>
+<ul>
+  <li>분할된 화면들을 독립적으로 구성하기 위해 사용함</li>
+  <li>분할된 화면들의 상태를 관리하기 위해 사용함</li>
+</ul>
+
+<p><img width="300" height="300" src="https://user-images.githubusercontent.com/30828236/59144720-aa712980-8a15-11e9-8430-800b840957eb.png" /></p>
+
+<h2 id="fragment-생명주기">Fragment 생명주기</h2>
+
+<h3 id="onattach">onAttach()</h3>
+<p>프래그먼트가 액티비티에 attach 될 때 호출된다. 호출되면서 인자로 Context가 있는대 이 Context를 가지고 부모 액티비티에 listener interface를 implement했다면 형변환을 통해 가져올 수 있다.</p>
+
+<h3 id="oncreate">onCreate()</h3>
+<p>시스템은 프래그먼트를 생성할때 <code class="highlighter-rouge">onCreate()</code>를 호출한다. 구현 내에서 프래그먼트의 기본 요소 중 프래그먼트가 일시정지되거나 중단되었다가 재개되었을 때 유지하고자 하는 것을 초기화해야 한다.</p>
+
+<h3 id="oncreateview">onCreateView()</h3>
+<p>시스템은 프래그먼트가 자신의 UI를 처음으로 그릴 시간이 되면 호출한다. 프래그먼트에 맞는 UI를 그리려면 메서드에서 <code class="highlighter-rouge">View</code>를 리턴해야 한다. 이 메서드는 프래그먼트 레이아웃의 루트이다. 프래그먼트가 UI를 제공하지 않는 경우 null을 반환하면 된다.</p>
+
+<h3 id="onactivitycreated">onActivityCreated()</h3>
+<p>액티비티에서 프래그먼트를 모두 생성하고 난 다음 호출된다. 액티비티의 onCreate()에서 setContentView()한 다음과 유사하다. 이후에 UI 변경 작업이 가능하다.</p>
+
+<h3 id="onstart">onStart()</h3>
+<p>액티비티에서의 역할과 비슷하다. 유저에게 프래그먼트가 보이도록 하는 역할이다.</p>
+
+<h3 id="onresume">onResume()</h3>
+<p>프래그먼트가 비로소 화면에 보여지는 단계, 사용자에게 포커스를 잡은 상태. 사용자와의 상호작용이 가능하다.</p>
+
+<h4 id="다른-프래그먼트가-add-되는-경우">다른 프래그먼트가 add 되는 경우</h4>
+
+<h3 id="onpause">onPause()</h3>
+<p>시스템이 이 메서드를 호출하는 것은 사용자가 프래그먼트를 떠난다는 첫 번째 신호이다.(프래그먼트가 소멸 중이라는 뜻은 아니다). 현재 사용자가 세션을 넘어서 지속되어야 하는 변경 사항을 적용하려면 이곳에서 해야 한다.</p>
+
+<h3 id="onstop">onStop()</h3>
+<p>프래그먼트는 더이상 보여지지 않게되며, 프래그먼트는 기능을 할 수 없다.</p>
+
+<h3 id="ondestroyview">onDestroyView()</h3>
+<p>프래그먼트에 <code class="highlighter-rouge">View</code>들을 제거한다. 만약 <code class="highlighter-rouge">add 할 때 backstack 을 사용했다면, 다시 해당 프래그먼트로 돌아 올때 onCreateView() 가 호출된다.</code></p>
+
+<h3 id="ondestroy">onDestroy()</h3>
+<p>프래그먼트를 제거하기 직전에 호출된다.</p>
+
+<h3 id="ondetach">onDetach()</h3>
+<p>프래그먼트 <code class="highlighter-rouge">제거를 완료</code>하고 액티비티와의 <code class="highlighter-rouge">연결도 해제</code> 시킨다.</p>
+
+<h2 id="액티비티의-생명주기와-프래그먼트의-생명주기">액티비티의 생명주기와 프래그먼트의 생명주기</h2>
+<p>액티비티의 각 상태가 성공적으로 전이되었을 때, 프래그먼트가 호출 받을 수 있는 콜백함수의 범위이다.
+<img width="300" height="300" src="https://user-images.githubusercontent.com/30828236/59145088-44d36c00-8a1a-11e9-9304-2977557fe312.png" /></p>
+<ul>
+  <li>activity가 onCreate() 호출을 받아서 생성되었으면, fragment는 onActivityCreated() 함수까지 진행가능</li>
+  <li><strong>onCreate()</strong> : fragment가 처음 만들어질때 호출한다. <code class="highlighter-rouge">데이터를 초기화 시키거나 onPause(), onStop() 단계에 갔다가 다시 데이터 복원할 정보를 여기서 처리한다.</code></li>
+  <li><strong>onCreateView()</strong> : fragment UI 초기화 할 때 호출한다.</li>
+  <li><strong>onPause()</strong> : 사용자가 fragment를 떠날 때 호출한다. 포커스를 가지고 있지는 않지만 back stack에 있을 수 있으므로 완전히 사라지는 것은 아니다. <code class="highlighter-rouge">여기서 데이터를 저장하는 것이 좋다.</code></li>
+  <li><strong>onDestroy()</strong> : activity가 destroy 될 때 같이 destory 된다.</li>
+</ul>
+
+<p><a href="https://developer.android.com/guide/components/fragments?hl=ko#EventCallbacks">안드로이드 공식 문서 링크</a></p>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/05/26/android-viewpager2/" data-toggle="tooltip" data-placement="top" title="[Android] ViewPager2 사용해보기">
+                        Previous<br>
+                        <span>[Android] ViewPager2 사용해보기</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/06/09/android-service/" data-toggle="tooltip" data-placement="top" title="[Android] Service 란">
+                        Next<br>
+                        <span>[Android] Service 란</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+                
+            </div>  
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0022" 
+                    href="/archive/?tag=Swift4"
+                    title="Swift4"
+                    rel="7">Swift4</a>
+        
+                <a data-sort="0000" 
+                    href="/archive/?tag=Study"
+                    title="Study"
+                    rel="29">Study</a>
+        
+                <a data-sort="0008" 
+                    href="/archive/?tag=Android"
+                    title="Android"
+                    rel="21">Android</a>
+        
+                <a data-sort="0008" 
+                    href="/archive/?tag=Mobile"
+                    title="Mobile"
+                    rel="21">Mobile</a>
+        
+                <a data-sort="0022" 
+                    href="/archive/?tag=iOS"
+                    title="iOS"
+                    rel="7">iOS</a>
+        
+                <a data-sort="0023" 
+                    href="/archive/?tag=Kotlin"
+                    title="Kotlin"
+                    rel="6">Kotlin</a>
+        
+                <a data-sort="0027" 
+                    href="/archive/?tag=Architecture"
+                    title="Architecture"
+                    rel="2">Architecture
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://dydtjr1128.github.io">dydtjr1128</a></li>
+  
+  <li><a href="https://seongmun-hong.github.io/">SeongMun-Hong</a></li>
+  
+</ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "junghoon-github-io";
+    var disqus_identifier = "/2019/06/08/android-fragment";
+    var disqus_url = "http://localhost:4000/2019/06/08/android-fragment/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: ''
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/Junghun0">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+                <p class="copyright text-muted">
+                    All Contents Copyright &copy; Junghoon's Blog 2019
+                    <br>
+                    Powered by <a href="http://Junghun0.github.io">JungHoon's Blog</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=Junghun0&repo=Junghun0.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-140397414-1';
+    var _gaDomain = '';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+
+        // interop with multilangual 
+        if ('' == 'true') {
+            _containerSelector = 'div.post-container.active'
+        } else {
+            _containerSelector = 'div.post-container'
+        }
+
+        // init
+        var P = $(_containerSelector),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
