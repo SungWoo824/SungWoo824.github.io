@@ -49,7 +49,7 @@ User user = User.builder()
     .build();
 ````
 
-#### @Singular
+## @Singular
 **@Singular** 어노테이션은 컬랙션으로 된 필드에 값을 하나씩 넘겨 줄 수 있다.
 
 #### [선언 예제]
