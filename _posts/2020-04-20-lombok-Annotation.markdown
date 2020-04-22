@@ -22,7 +22,8 @@ categories: Spring Lombok
 - **@ToString** : 모든 필드를 출력하는 toString() 메소드 생성
 - **@EqualsAndHashCode** : hashcode 와 equals 메소드 생성
 
-####**@Data** 어노테이션은
+**@Data** 어노테이션은
+
  **@Getter**,**@Setter**,**@ToString**,**@EqualsAndHashCode**,**@RequiredArgsConstructor** 어노테이션을 한번에 처리한다.
  
 ##@Builder
