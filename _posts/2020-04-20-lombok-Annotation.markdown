@@ -25,11 +25,11 @@ categories: Spring Lombok
 ####**@Data** 어노테이션은
  **@Getter**,**@Setter**,**@ToString**,**@EqualsAndHashCode**,**@RequiredArgsConstructor** 어노테이션을 한번에 처리한다.
  
- ##@Builder
+##@Builder
  
  **@Builder** 어노테이션 같은 경우 다수의 필드를 가지고 있는 클래스인 경우 생성자 대신 빌더를 사용해 편하게 사용할수 있다
  
- ####[선언 예제]
+####[선언 예제]
  ````java
 @Builder
 public class User{
