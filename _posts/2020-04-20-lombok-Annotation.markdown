@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "[Spring] Lombok 어노테이션"
-description: [Spring] Lombok @(어노테이션) 정리
+title:  "Lombok 어노테이션"
+description: Lombok @(어노테이션) 정리
 date:   2020-04-20 +1700
 categories: Spring Lombok
 ---
