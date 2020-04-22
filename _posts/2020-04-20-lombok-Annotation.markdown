@@ -11,12 +11,12 @@ categories: Spring Lombok
 단순히 어노테이션 하나를 붙임으로써 여러가지를 자동으로 생성해주다 보니 편하여 자주 쓰게 되었는데 상황에 맞는 어노테이션을 사용하기위해 정리를 하게 되었다.
 
 
-##생성자 자동 생성 어노테이션
+ ##생성자 자동 생성 어노테이션
 - **@NoArgsConstructor** : 파라미터가 없는 기본 생성자 생성
 - **@AllArgsConstructor** : 모든 필드 값 파라미터로 받는 생성자 생성
 - **@RequiredArgsConstructor** : final 인 필드 값들을 자동으로 생성자에 파라미터 추가 생성(필수 파라미터값만)
 
-##@Data 어노테이션
+ ##@Data 어노테이션
 - **@Getter** : Getter 메소드 자동 생성
 - **@Setter** : Setter 메소드 자동 생성
 - **@ToString** : 모든 필드를 출력하는 toString() 메소드 생성
@@ -26,11 +26,11 @@ categories: Spring Lombok
 
  **@Getter**,**@Setter**,**@ToString**,**@EqualsAndHashCode**,**@RequiredArgsConstructor** 어노테이션을 한번에 처리한다.
  
-##@Builder
+ ##@Builder
  
  **@Builder** 어노테이션 같은 경우 다수의 필드를 가지고 있는 클래스인 경우 생성자 대신 빌더를 사용해 편하게 사용할수 있다
  
-####[선언 예제]
+ ####[선언 예제]
  ````java
 @Builder
 public class User{
@@ -40,7 +40,7 @@ public class User{
 }
 ````
 
-####[사용 예제]
+ ####[사용 예제]
 ````java
 User user = User.builder()
     .id(1)
@@ -49,10 +49,10 @@ User user = User.builder()
     .build();
 ````
 
-####@Singular
+ ####@Singular
 **@Singular** 어노테이션은 컬랙션으로 된 필드에 값을 하나씩 넘겨 줄 수 있다.
 
-####[선언 예제]
+ ####[선언 예제]
 
  ````java
 @Builder
@@ -65,7 +65,7 @@ public class User{
 }
 ````
 
-####[사용 예제]
+ ####[사용 예제]
 
 ````java
 User user = User.builder()
