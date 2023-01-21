@@ -19,4 +19,4 @@ Java, Spring Backend 작업중 발생했던 문제, 알게된 정보를 정리�
 {:.related-posts.faded}
 
 
-[Lombok]: 2020-04-20-lombok-Annotation.markdown
+[Lombok]: summary/2020-04-20-lombok-Annotation/

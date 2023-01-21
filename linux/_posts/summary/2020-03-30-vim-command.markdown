@@ -3,7 +3,7 @@ layout: post
 title:  "vi,vim 명령어"
 description: vi, vim 정의 및 명령어 정리.
 date:   2020-03-30 +0530
-categories: Linux vim
+categories: summary
 ---
 Linux, Unix 환경에서는 터미널에서 vi, vim 에디터를 기본으로 사용한다. 코딩을 시작하기 전까지는 윈도우환경에서만 컴퓨터를 사용했었던 터라 이 부분은 자꾸 헷갈리게 되어 다시한번 정리하며 포스팅을 하게 되었다.
 

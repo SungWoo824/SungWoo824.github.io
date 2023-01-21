@@ -3,7 +3,7 @@ layout: post
 title:  "Lombok 어노테이션"
 description: Lombok @(어노테이션) 정리
 date:   2020-04-20 +1700
-categories: Spring Lombok
+categories: Summary
 ---
 <p>
  맨처음 공부를 시작한뒤 Getter Setter toString 을 열심히 만들다가 Lombok의 존재를 알게되었다.
@@ -31,30 +31,30 @@ categories: Spring Lombok
  **@Builder** 어노테이션 같은 경우 다수의 필드를 가지고 있는 클래스인 경우 생성자 대신 빌더를 사용해 편하게 사용할수 있다
  
 #### [선언 예제]
- ````java
+ ```java
 @Builder
 public class User{
     private Long Id;
     private String userName;
     private String userEmail;
 }
-````
+```
 
 #### [사용 예제]
-````java
+```java
 User user = User.builder()
     .id(1)
     .userName("SW")
     .userName("SW@gmail.com")
     .build();
-````
+```
 
 ## @Singular
 **@Singular** 어노테이션은 컬랙션으로 된 필드에 값을 하나씩 넘겨 줄 수 있다.
 
 #### [선언 예제]
 
- ````java
+~~~java
 @Builder
 public class User{
     private Long Id;
@@ -63,11 +63,11 @@ public class User{
     @Singular
     private List<Integer> coupon;
 }
-````
+~~~
 
 #### [사용 예제]
 
-````java
+```java
 User user = User.builder()
     .id(1)
     .userName("SW")
@@ -76,7 +76,7 @@ User user = User.builder()
     .coupon(4000)
     .coupon(6000)
     .build();
-````
+```
 
 <p>
 없어도 코드를 짜는데 문제가 없지만, 이전과 비교해 한눈에 확인이 되는거 같고 반복작업을 줄여주기 때문에 편리하게 사용중에있다.
