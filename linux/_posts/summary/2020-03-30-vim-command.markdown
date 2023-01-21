@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "vi,vim 명령어"
+title:  "Vim, Vi 명령어"
 description: vi, vim 정의 및 명령어 정리.
 date:   2020-03-30 +0530
 categories: summary
