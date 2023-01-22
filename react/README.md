@@ -21,6 +21,8 @@ Front End - JS, React 등 진행한 항목들을 정리.
 
 ## 오류 정리
 * [Functions are not valid error]{:.heading.flip-title} --- Functions are not valid error 해결.
+* [Route is only ever to be used as a child of Routes element]{:.heading.flip-title} --- Functions are not valid error 해결.
 
 
 [Functions are not valid error]: error/2023-01-19-FunctionsAreNotValidError/
+[Route is only ever to be used as a child of Routes element]: error/2023-01-22-RouteIsOnlyEver/
