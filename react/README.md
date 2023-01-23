@@ -5,7 +5,7 @@ description: >
   Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
 hide_description: true
 sitemap: false
-permalink: /React/
+permalink: /react/
 ---
 
 Front End - JS, React 등 진행한 항목들을 정리.
