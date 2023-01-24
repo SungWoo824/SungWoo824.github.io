@@ -13,6 +13,7 @@ react-router-dom 버전을 5 -> 6 으로 변경하며,
 
 
 ### 1. Cannot read properties of undefined (reading 'match')
+
 ![2023_01_19_1](/assets/img/post/2023-01-23-1.png)
 
 #### 발생코드
@@ -41,7 +42,7 @@ function Topic({match}) {
 }
 ```
 
-### 해결방법
+#### 해결방법
 
 ```js
 function Topic() {
@@ -59,3 +60,38 @@ function Topic() {
 }
 ```
 Path Variable 을 이용할시 useParams() Hook 을 이용하여 사용.
+
+
+### 2. Functions are not valid as a React child. This may happen if you return a Component instead of <Component /> from render.
+
+![2023_01_19_1](/assets/img/post/2023-01-24-1.png)
+
+#### 발생코드
+
+```js
+function App() {
+    return (
+        <HashRouter>
+            <Routes>
+                <Route exact path="/" element={Home}/>
+            </Routes>
+        </HashRouter>
+    );
+}
+```
+
+#### 해결방법
+
+```js
+function App() {
+    return (
+        <HashRouter>
+            <Routes>
+                <Route exact path="/" element={<Home/>}/>
+            </Routes>
+        </HashRouter>
+    );
+}
+```
+
+Route element 를 아래와 같이 수정하면 동작합니다.
