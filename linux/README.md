@@ -16,7 +16,9 @@ permalink: /linux/
 
 ## 정보 정리
 * [Vim, Vi]{:.heading.flip-title} --- Vim command.
+* [Gem]{:.heading.flip-title} --- GemFilePermissionError.
 {:.related-posts.faded}
 
 
 [Vim, Vi]: summary/2020-03-30-vim-command/
+[Gem]: summary/2023-03-18-GemFilePermissionError/
