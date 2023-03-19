@@ -18,5 +18,10 @@ Java, Spring Backend 작업중 발생했던 문제, 알게된 정보를 정리�
 * [Lombok]{:.heading.flip-title} --- Lombok 어노테이션.
 {:.related-posts.faded}
 
+## Error
+* [Database 설정 Error]{:.heading.flip-title} --- SpringBoot Database 설정 오류.
+  {:.related-posts.faded}
+
 
 [Lombok]: summary/2020-04-20-lombok-Annotation/
+[Database 설정 Error]: error/2023-03-19-SpringBootDatabaseError/
