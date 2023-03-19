@@ -17,7 +17,7 @@ permalink: /linux/
 ## 정보 정리
 * [Vim, Vi]{:.heading.flip-title} --- Vim command.
 
-## Error 해결
+## 오류 정리
 * [GemFilePermissionError]{:.heading.flip-title} --- GemFilePermissionError.
 {:.related-posts.faded}
 
