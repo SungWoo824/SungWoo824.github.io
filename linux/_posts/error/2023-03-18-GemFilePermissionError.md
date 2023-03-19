@@ -20,11 +20,11 @@ $ bundle install
 ```
 
 ### 발생 원인
-오류메시지를 읽어 보면 ruby에 관련된 권한에 문제가 있어 발생하는 오류로 보여져 확인을 해 보았습니다.
+오류메시지를 읽어 보면 ruby에 관련된 권한에 문제가 있어 발생하는 오류로 보여져 확인을 해보았습니다.
 
 간단히 root 권한으로 설치는 가능해 보여지지만, 보안상의 이유로 좋지 않은 방법으로 보여집니다.
 
-확인해 보니 시스템 ruby를 이용하고 있기 떄문에 권한이 없어 Gem이 설치가 안되는 상태였습니다.
+확인해 보니 시스템 ruby를 이용하고 있기 때문에 권한이 없어 Gem이 설치가 안되는 상태였습니다.
 
 이를 해결하기 위해 루비 버전 관리를 위한 패키지인 rbenv를 이용하였습니다.
 
@@ -35,14 +35,14 @@ brew update
 brew install rbenv ruby-build
 ```
 
-rbenv 설치후 현제 루비 버젼을 확인해 보면
+rbenv 설치후 현재 루비 버젼을 확인해 보면
 
 ```console
 rbenv versions
 * system (set by /Users/idong-uk/.rbenv/version)
 ```
 
-system 루비 버전을 사용하고 있다는것을 확인할수 있습니다.
+system 루비 버전을 사용하고 있다는것을 확인할 수 있습니다.
 
 ```console
  rbenv install -l
