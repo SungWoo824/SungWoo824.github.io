@@ -34,7 +34,7 @@ Docker에서 SpringBoot가 실행될 환경을 만들기 위해 Dockerfile을 �
 #### Dockerfile 이란?
 * docker에서 이용하는 이미지를 기반으로 커스터 마이징 한 퍼스널 이미지를 생성할수 있도록 하는 이미지 설정파일 입니다.
 
-[DockerFile 이란?] {:.heading.flip-title}
+[DockerFile 이란?]{:.heading.flip-title}
 
 [DockerFile 이란?]: https://sungwoo824.github.io/server/summary/2023-04-09-DockerFileCompose/
 
