@@ -8,7 +8,7 @@ sitemap: false
 permalink: /java/
 ---
 
-Java, Spring Backend 작업중 발생했던 문제, 알게된 정보를 정리하기 위한 페이지 입니다.
+Java, Spring Backend 작업중 발생했던 문제, 알게된 정보, 공부했던 내용을 정리하기 위한 페이지 입니다.
 
 2023-01-20 페이지 정리 시작.
 {:.note}
@@ -23,7 +23,11 @@ Java, Spring Backend 작업중 발생했던 문제, 알게된 정보를 정리�
 * [Database 설정 Error]{:.heading.flip-title} --- SpringBoot Database 설정 오류.
   {:.related-posts.faded}
 
+## Modern Java
+* [Modern JAVA Summary]{:.heading.flip-title} --- Modern Java 개요.
+  {:.related-posts.faded}
 
 [Lombok]: summary/2020-04-20-lombok-Annotation/
 [Database 설정 Error]: error/2023-03-19-SpringBootDatabaseError/
 [SpringBoot Docker Setting]: summary/2023-03-19-SpringBootDockerSetting/
+[Modern JAVA Summary]: modern-java/2023-05-03-ModernJavaSummary/
