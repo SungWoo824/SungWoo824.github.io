@@ -3,10 +3,10 @@ layout: post
 title:  "Java version 변화점 정리."
 description:  
 date: 2023-05-03 20:00 PM  
-categories: summary
+categories: modern-java
 ---
 
-### Java 8
+### Modern Java Summary
 
 ```java
 Collections.sort(inventory, new Comparator<Apple>() {
