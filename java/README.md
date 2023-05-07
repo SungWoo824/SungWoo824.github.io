@@ -25,9 +25,11 @@ Java, Spring Backend 작업중 발생했던 문제, 알게된 정보, 공부했�
 
 ## Modern Java
 * [Modern JAVA Summary]{:.heading.flip-title} --- Modern Java 개요.
+* [Functional Interface]{:.heading.flip-title} --- Java 8 Functional Interface.
   {:.related-posts.faded}
 
 [Lombok]: summary/2020-04-20-lombok-Annotation/
 [Database 설정 Error]: error/2023-03-19-SpringBootDatabaseError/
 [SpringBoot Docker Setting]: summary/2023-03-19-SpringBootDockerSetting/
 [Modern JAVA Summary]: modern-java/2023-05-03-ModernJavaSummary/
+[Functional Interface]: modern-java/2023-05-07-FunctionalInterface/
