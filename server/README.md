@@ -19,6 +19,7 @@ Server 운영을 위하여 사용한 라이브러리, 소프트웨어 들의 정
 * [HAProxy 란?]{:.heading.flip-title} --- HAProxy 에 대하여 정리.
 * [DockerFile 이란?]{:.heading.flip-title} --- DockerFile 에 대하여 정리.
 * [Kafka Topic 과 Partition]{:.heading.flip-title} --- Kafka Topic 과 Partition.
+* [Spring Kafka]{:.heading.flip-title} --- Spring Kafka Producer 와 Consumer
 {:.related-posts.faded}
 
 [comment]: <> (## 오류 정리)
@@ -34,3 +35,4 @@ Server 운영을 위하여 사용한 라이브러리, 소프트웨어 들의 정
 [HAProxy 란?]: summary/2023-01-25-HAProxy/
 [DockerFile 이란?]: summary/2023-04-09-DockerFileCompose/
 [Kafka Topic 과 Partition]: summary/2023-08-05-Kafka-Topic/
+[Spring Kafka]: summary/2023-08-06-Spring-Kafka/
