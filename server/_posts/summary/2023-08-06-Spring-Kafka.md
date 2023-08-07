@@ -71,7 +71,7 @@ spring.kafka.producer.value-serialize
   <tr>
     <td rowspan="2">MessageListener</td>
     <td rowspan="2">Record 인스턴스 단위로 프로세싱, 오토 커밋 또는 컨슈머 컨테이너의 AckMode를 사용하는 경우</td>
-    <td>onMessage(ConsumerRecord< K, V >)</td>
+    <td>onMessage(ConsumerRecord< K, V > data)</td>
   </tr>
   <tr>
     <td>onMessage(V data)</td>
@@ -102,3 +102,49 @@ spring.kafka.producer.value-serialize
   </tr>
 </table>
 
+#### 배치 리스너(BatchMessageListener)
+
+배치 리스너는 기존 카프카 클라이언트 라이브러리의 poll() 메서드로 리턴받은 ConsumerRecords 처럼 
+한번에 여러 개 레코드들을 처리할 수 있습니다.
+
+배치 리스너의 종류와 메서드 파라미터는 아래와 같습니다.
+
+<table>
+    <thead>
+        <th>리스너 이름</th>
+        <th>상세 설명</th>
+        <th>생성 메서드 파라미터</th>
+    </thead>
+  <tr>
+    <td rowspan="2">BatchMessageListener</td>
+    <td rowspan="2">Record 인스턴스 단위로 프로세싱, 오토 커밋 또는 컨슈머 컨테이너의 AckMode를 사용하는 경우</td>
+    <td>onMessage(ConsumerRecord< K, V > data)</td>
+  </tr>
+  <tr>
+    <td>onMessage(List< V > data)</td>
+  </tr>
+  <tr>
+    <td rowspan="2">BatchAcknowledgingMessageListener</td>
+    <td rowspan="2">Record 인스턴스 단위로 프로세싱, 매뉴얼 커밋을 사용하는 경우</td>
+    <td>onMessage(ConsumerRecord< K, V > data, Acknowledgment acknowledgment)</td>
+  </tr>
+  <tr>
+    <td>onMessage(List< V > data, Acknowledgment acknowledgment)</td>
+  </tr>
+  <tr>
+    <td rowspan="2">BatchConsumerAwareMessageListener</td>
+    <td rowspan="2">Record 인스턴스 단위로 프로세싱, 컨슈머 객체를 활용하고 싶은 경우</td>
+    <td>onMessage(ConsumerRecord< K, V > data, Consumer< K, V > consumer)</td>
+  </tr>
+  <tr>
+    <td>onMessage(List< V > data, Consumer< K, V > consumer)</td>
+  </tr>
+  <tr>
+    <td rowspan="2">AcknowledgingConsumerAwareMessageListener</td>
+    <td rowspan="2">Record 인스턴스 단위로 프로세싱, 매뉴얼 커밋을 사용하고 컨슈머 객체를 활용하고 싶은 경우</td>
+    <td>onMessage(ConsumerRecord< K, V > data, Acknowledgment acknowledgment, Consumer< K, V > consumer)</td>
+  </tr>
+  <tr>
+    <td>onMessage(List< V > data, Acknowledgment acknowledgment, Consumer< K, V > consumer)</td>
+  </tr>
+</table>
