@@ -17,6 +17,7 @@ Java, Spring Backend 작업중 발생했던 문제, 알게된 정보, 공부했�
 ## 정보 정리
 * [Lombok]{:.heading.flip-title} --- Lombok 어노테이션.
 * [SpringBoot Docker Setting]{:.heading.flip-title} --- SpringBoot Docker 이미지 생성 및 배포.
+* [SOLID 원칙]{:.heading.flip-title} --- SOLID 원칙.
 {:.related-posts.faded}
 
 ## 오류 정리
@@ -33,3 +34,4 @@ Java, Spring Backend 작업중 발생했던 문제, 알게된 정보, 공부했�
 [SpringBoot Docker Setting]: summary/2023-03-19-SpringBootDockerSetting/
 [Modern JAVA Summary]: modern-java/2023-05-03-ModernJavaSummary/
 [Functional Interface]: modern-java/2023-05-07-FunctionalInterface/
+[SOLID 원칙]: summary/2024-01-20-SOLID/
