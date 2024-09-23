@@ -22,6 +22,9 @@ Java, Spring Backend 작업중 발생했던 문제, 알게된 정보, 공부했�
 
 ## 오류 정리
 * [Database 설정 Error]{:.heading.flip-title} --- SpringBoot Database 설정 오류.
+* [LazyInitializationException]{:.heading.flip-title} --- Transactional 관련 오류.
+* [UnsatisfiedDependencyException]{:.heading.flip-title} --- SpringBoot Database 설정 오류.
+* [InvalidDataAccessResourceUsageException]{:.heading.flip-title} --- Database physical_naming_strategy 설정 처리.
   {:.related-posts.faded}
 
 ## Modern Java
@@ -35,3 +38,6 @@ Java, Spring Backend 작업중 발생했던 문제, 알게된 정보, 공부했�
 [Modern JAVA Summary]: modern-java/2023-05-03-ModernJavaSummary/
 [Functional Interface]: modern-java/2023-05-07-FunctionalInterface/
 [SOLID 원칙]: summary/2024-01-20-SOLID/
+[LazyInitializationException]: error/2024-07-18-LazyInitializationException/
+[UnsatisfiedDependencyException]: error/2024-08-30-UnsatisfiedDependencyException/
+[InvalidDataAccessResourceUsageException]: error/2024-09-20-InvalidDataAccessResourceUsageException/
