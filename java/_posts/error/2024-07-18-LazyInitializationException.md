@@ -8,6 +8,8 @@ categories: error
 
 ### org.hibernate.LazyInitializationException: could not initialize proxy
 
+기존 코드를 API 로 리팩토링 하는 과정중 발생한 오류입니다.
+
 #### 문제발생 지점
 
 ```java

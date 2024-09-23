@@ -8,6 +8,8 @@ categories: error
 
 ### org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL
 
+알림관련 코드를 리팩토링 하며 발생된 오류중 하나입니다.
+
 #### 문제발생 지점
 
 ```console
