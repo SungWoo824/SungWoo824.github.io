@@ -2,7 +2,7 @@
 layout: post  
 title:  "SpringBoot JPA Error."
 description:  
-date: 2024-07-18 11:00 AM  
+date: 2024-08-30 11:00 AM  
 categories: error
 ---
 
