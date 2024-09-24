@@ -25,6 +25,7 @@ Java, Spring Backend 작업중 발생했던 문제, 알게된 정보, 공부했�
 * [LazyInitializationException]{:.heading.flip-title} --- Transactional 관련 오류.
 * [UnsatisfiedDependencyException]{:.heading.flip-title} --- SpringBoot Database 설정 오류.
 * [InvalidDataAccessResourceUsageException]{:.heading.flip-title} --- Database physical_naming_strategy 설정 처리.
+* [MismatchedInputException]{:.heading.flip-title} --- Database Column 타입에 따른 Converting 오류.
   {:.related-posts.faded}
 
 ## Modern Java
@@ -41,3 +42,4 @@ Java, Spring Backend 작업중 발생했던 문제, 알게된 정보, 공부했�
 [LazyInitializationException]: error/2024-07-18-LazyInitializationException/
 [UnsatisfiedDependencyException]: error/2024-08-30-UnsatisfiedDependencyException/
 [InvalidDataAccessResourceUsageException]: error/2024-09-20-InvalidDataAccessResourceUsageException/
+[MismatchedInputException]: error/2024-06-05-MismatchedInputException/
